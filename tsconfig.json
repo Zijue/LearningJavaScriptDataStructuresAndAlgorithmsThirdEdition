@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ESNEXT",
     "allowJs": true,
-    "noEmit": true
+    "noEmit": true,
+    "moduleResolution": "node"
   }
 }
