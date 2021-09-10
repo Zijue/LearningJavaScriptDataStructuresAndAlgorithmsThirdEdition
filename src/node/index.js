@@ -4,3 +4,9 @@ export class Node {
         this.next = undefined; // 指向下一个节点
     }
 }
+export class DoubleNode extends Node { // 双向节点
+    constructor(element, next, prev) {
+        super(element, next);
+        this.prev = prev;
+    }
+}
