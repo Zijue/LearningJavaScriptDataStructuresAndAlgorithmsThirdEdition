@@ -6,3 +6,4 @@ linkedList.push('zijue');
 linkedList.insert('xiaodai', 1);
 console.log(linkedList.toString());
 console.log(linkedList.indexOf('zijue'));
+console.log(linkedList.getElementAt(linkedList.size()))
