@@ -27,3 +27,4 @@ class SortedLinkedList extends LinkedList {
         return i;
     }
 }
+export default SortedLinkedList;

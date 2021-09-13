@@ -64,5 +64,18 @@ class DoubleLinkedList extends LinkedList {
         }
         return undefined;
     }
+    push(element) {
+        const node = new DoubleNode(element);
+        if (this.isEmpty()) {
+            this.head = node;
+            this.tail = node;
+        } else {
+            let lastNode = this.tail;
+            this.tail = node;
+            lastNode.next = node;
+            node.prev = lastNode;
+        }
+        this.count++;
+    }
 }
 export default DoubleLinkedList;
