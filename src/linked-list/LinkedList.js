@@ -70,16 +70,18 @@ class LinkedList {
         return false;
     }
     toString() {
-        let arr = [];
+        const arr = [];
+        if (this.head == null) return '';
         let node = this.head;
-        if (node == null) {
-            return '';
-        }
-        for (let i = 0; i < this.count; i++) {
-            arr.push(node.element);
+        for (let i = 0; i < this.size(); i++) {
+            let tempObj = {
+                element: node.element,
+                next: node.next ? node.next.element : null
+            }
+            arr.push(JSON.stringify(tempObj));
             node = node.next;
         }
-        return arr.join(' => ')
+        return arr.join(' => ');
     }
     indexOf(element) { // 返回一个元素的位置
         let current = this.head;
@@ -103,6 +105,42 @@ class LinkedList {
     }
     getHead() {
         return this.head;
+    }
+    reverse(head = this.head) {
+        /** 就地逆置法反转链表
+         * 需要额外借助两个指针beg end
+         * 核心思想就是将后续节点插到head节点的前面（头插法需要一个新的链表，此方法不需要）
+         */
+        // let beg = this.head;
+        // let end = this.head.next;
+        // while (end != null) {
+        //     // 移除end节点
+        //     beg.next = end.next;
+        //     // 将end节点移动到链表头部
+        //     end.next = this.head;
+        //     this.head = end;
+        //     // 最后调整end的指向
+        //     end = beg.next;
+        // }
+        // return this.head;
+
+        /** 递归的方式反转链表
+         */
+        // 递归的出口
+        if (head == null || head.next == null) { // 空链或者只有一个节点，直接返回头指针
+            this.head = head;
+            return head;
+        } else {
+            // 一直递归，找到链表的最后一个节点
+            let newHead = this.reverse(head.next);
+            // 当逐层退出时，newHead的指向不变，一直指向原链表中最后一个节点
+            // 递归每退出一层，函数中head指针的指向都会发生改变，都指向上一个节点
+            // 每退出一层，都需要改变head.next节点指针域的指向，同时令head所指节点的指针域为null
+            head.next.next = head;
+            head.next = null;
+            // 每一层递归结束，都要将新的头指针返回给上一层。由此，即可保证整个递归过程中，能够一直找到新链表的表头
+            return newHead;
+        }
     }
 }
 export default LinkedList;

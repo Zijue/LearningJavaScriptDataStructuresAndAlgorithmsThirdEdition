@@ -1,13 +1,15 @@
 import { LinkedList, DoubleLinkedList, DoubleCircularLinkedList } from './linked-list';
 
 // 单向链表测试
-// const linkedList = new LinkedList();
-// linkedList.push('xiaochi');
-// linkedList.push('zijue');
-// linkedList.insert('xiaodai', 1);
-// console.log(linkedList.toString());
-// console.log(linkedList.indexOf('zijue'));
-// console.log(linkedList.getElementAt(linkedList.size()))
+const linkedList = new LinkedList();
+linkedList.push('xiaochi');
+linkedList.push('zijue');
+linkedList.insert('xiaodai', 1);
+console.log(linkedList.toString());
+console.log(linkedList.indexOf('zijue'));
+console.log(linkedList.getElementAt(linkedList.size()))
+console.log(linkedList.reverse()); // 链表反转
+console.log(linkedList.toString());
 
 // 双向链表测试
 // const doubleLinkedList = new DoubleLinkedList();
@@ -21,12 +23,12 @@ import { LinkedList, DoubleLinkedList, DoubleCircularLinkedList } from './linked
 // console.log(doubleLinkedList.tail.prev);
 
 // 双向循环链表测试
-const dcll = new DoubleCircularLinkedList();
-dcll.insert('xiaochi', 0);
-dcll.insert('zijue-1', 1);
-dcll.insert('zijue-2', 2);
-dcll.insert('zijue-3', 3);
-console.log(dcll.toString());
-// console.log(dcll.removeAt(2));
-console.log(dcll.removeAt(0));
-console.log(dcll.toString());
+// const dcll = new DoubleCircularLinkedList();
+// dcll.insert('xiaochi', 0);
+// dcll.insert('zijue-1', 1);
+// dcll.insert('zijue-2', 2);
+// dcll.insert('zijue-3', 3);
+// console.log(dcll.toString());
+// // console.log(dcll.removeAt(2));
+// console.log(dcll.removeAt(0));
+// console.log(dcll.toString());
