@@ -1,4 +1,5 @@
 import { LinkedList, DoubleLinkedList, DoubleCircularLinkedList, LRUCache } from './linked-list';
+import Set from './set/index';
 
 // 单向链表测试
 // const linkedList = new LinkedList();
@@ -34,14 +35,29 @@ import { LinkedList, DoubleLinkedList, DoubleCircularLinkedList, LRUCache } from
 // console.log(dcll.toString());
 
 // LRU算法测试 -- 哈希链表
-const lru = new LRUCache(4);
-lru.put(1, 1);
-lru.put(2, 2);
-lru.put(3, 3);
-lru.get(1);
-console.log(lru.toString());
-lru.put(4, 4);
-lru.put(5, 5);
-console.log(lru.toString());
-lru.put(4, 'zijue');
-console.log(lru.toString());
+// const lru = new LRUCache(4);
+// lru.put(1, 1);
+// lru.put(2, 2);
+// lru.put(3, 3);
+// lru.get(1);
+// console.log(lru.toString());
+// lru.put(4, 4);
+// lru.put(5, 5);
+// console.log(lru.toString());
+// lru.put(4, 'zijue');
+// console.log(lru.toString());
+
+// 集合Set的测试
+const set = new Set();
+set.add(1);
+console.log(set.values());
+console.log(set.has(1));
+console.log(set.size());
+set.add(2);
+console.log(set.values());
+console.log(set.has('2'));
+console.log(set.size());
+set.delete(1);
+console.log(set.values());
+set.delete(2);
+console.log(set.values());
