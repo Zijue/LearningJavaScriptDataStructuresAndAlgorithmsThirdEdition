@@ -1,5 +1,5 @@
 import { LinkedList, DoubleLinkedList, DoubleCircularLinkedList, LRUCache } from './linked-list';
-import Set from './set/index';
+// import Set from './set/index';
 
 // 单向链表测试
 // const linkedList = new LinkedList();
@@ -48,16 +48,29 @@ import Set from './set/index';
 // console.log(lru.toString());
 
 // 集合Set的测试
-const set = new Set();
-set.add(1);
-console.log(set.values());
-console.log(set.has(1));
-console.log(set.size());
-set.add(2);
-console.log(set.values());
-console.log(set.has('2'));
-console.log(set.size());
-set.delete(1);
-console.log(set.values());
-set.delete(2);
-console.log(set.values());
+// const set = new Set();
+// set.add(1);
+// console.log(set.values());
+// console.log(set.has(1));
+// console.log(set.size());
+// set.add(2);
+// console.log(set.values());
+// console.log(set.has('2'));
+// console.log(set.size());
+// set.delete(1);
+// console.log(set.values());
+// set.delete(2);
+// console.log(set.values());
+
+// ES2015原生Set学习
+// const set = new Set();
+// set.add(1);
+// console.log(set.values()); // 不是一个数组，而是@Iterator
+// console.log(set.has(1));
+// console.log(set.size); // size是一个属性
+// 原生集合求交集、并集、差集的实现方式
+const setA = new Set([1, 2, 3]);
+const setB = new Set([3, 4, 5]);
+console.log(new Set([...setA, ...setB])); // 并集
+console.log(new Set([...setA].filter(x => setB.has(x)))); // 交集
+console.log(new Set([...setA].filter(x => !setB.has(x)))); // 差集
