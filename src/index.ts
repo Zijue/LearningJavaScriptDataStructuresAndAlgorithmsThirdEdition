@@ -1,5 +1,6 @@
 import { LinkedList, DoubleLinkedList, DoubleCircularLinkedList, LRUCache } from './linked-list';
 // import Set from './set/index';
+import { Dictionary, HashTable, HashTableSeparateChaining } from './map/index';
 
 // 单向链表测试
 // const linkedList = new LinkedList();
@@ -69,8 +70,48 @@ import { LinkedList, DoubleLinkedList, DoubleCircularLinkedList, LRUCache } from
 // console.log(set.has(1));
 // console.log(set.size); // size是一个属性
 // 原生集合求交集、并集、差集的实现方式
-const setA = new Set([1, 2, 3]);
-const setB = new Set([3, 4, 5]);
-console.log(new Set([...setA, ...setB])); // 并集
-console.log(new Set([...setA].filter(x => setB.has(x)))); // 交集
-console.log(new Set([...setA].filter(x => !setB.has(x)))); // 差集
+// const setA = new Set([1, 2, 3]);
+// const setB = new Set([3, 4, 5]);
+// console.log(new Set([...setA, ...setB])); // 并集
+// console.log(new Set([...setA].filter(x => setB.has(x)))); // 交集
+// console.log(new Set([...setA].filter(x => !setB.has(x)))); // 差集
+
+// 字典类测试
+// const dic = new Dictionary();
+// dic.set('Gandalf', 'gandalf@email.com');
+// dic.set('John', 'johnsnow@email.com');
+// dic.set('Tyrion', 'tyrion@email.com');
+// console.log(dic.keys());
+// console.log(dic.values());
+// console.log(dic.keyValues());
+// console.log(dic.get('Tyrion'));
+// dic.forEach((k, v) => {
+//     console.log('forEach: ', `key: ${k}, value: ${v}`);
+// });
+
+// 散列表测试
+// const hash = new HashTable();
+// hash.put('Gandalf', 'gandalf@email.com');
+// hash.put('John', 'johnsnow@email.com');
+// hash.put('Tyrion', 'tyrion@email.com');
+// console.log(hash.hashCode('Gandalf') + '- Gandalf');
+// console.log(hash.hashCode('John') + ' - John');
+// console.log(hash.hashCode('Tyrion') + ' - Tyrion');
+// console.log(hash.get('Gandalf')); 
+// console.log(hash.get('Loiane'));
+
+// 散列表冲突测试
+// const hash = new HashTable();
+const hash = new HashTableSeparateChaining();
+hash.put('Ygritte', 'ygritte@email.com');
+hash.put('Jonathan', 'jonathan@email.com');
+hash.put('Jamie', 'jamie@email.com');
+hash.put('Jack', 'jack@email.com');
+hash.put('Jasmine', 'jasmine@email.com');
+hash.put('Jake', 'jake@email.com');
+hash.put('Nathan', 'nathan@email.com');
+hash.put('Athelstan', 'athelstan@email.com');
+hash.put('Sue', 'sue@email.com');
+hash.put('Aethelwulf', 'aethelwulf@email.com');
+hash.put('Sargeras', 'sargeras@email.com');
+console.log(hash.toString()); //上述的哈希表存在散列冲突，会使：分离链接 或 线性探查
