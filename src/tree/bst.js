@@ -99,6 +99,7 @@ export default class BinarySearchTree {
     }
     remove(key) { //从树中移除某个键
         //将removeNode方法的返回值赋给root?
+        //为了父节点指向正确；当子节点删除时，父节点能够有正确的指向
         this.root = this.removeNode(this.root, key);
     }
     removeNode(node, key) {
