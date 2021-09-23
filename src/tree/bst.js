@@ -29,7 +29,19 @@ export default class BinarySearchTree {
         }
     }
     search(key) { //在树中查找key
-
+        return this.searchNode(this.root, key);
+    }
+    searchNode(node, key) {
+        if (node == null) {
+            return false;
+        }
+        if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
+            return this.searchNode(node.left, key);
+        } else if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
+            return this.searchNode(node.right, key);
+        } else {
+            return true;
+        }
     }
     inOrderTraverse(callback) { //中序遍历方式遍历所有节点 -- 从最小到最大的顺序访问所有节点
         //接收一个回调函数作为参数；回调函数用来定义我们对遍历到的每个节点进行的操作（也叫访问者模式）
@@ -66,12 +78,59 @@ export default class BinarySearchTree {
         }
     }
     min() { //返回树中最小的值
-
+        return this.minNode(this.root);
+    }
+    minNode(node) {
+        let current = node;
+        while (current != null && current.left != null) {
+            current = current.left;
+        }
+        return current;
     }
     max() { //返回树中最大的值
-
+        return this.maxNode(this.root);
     }
-    remove() { //从树中移除某个键
-
+    maxNode(node) {
+        let current = node;
+        while (current != null && current.right != null) {
+            current = current.right;
+        }
+        return current;
+    }
+    remove(key) { //从树中移除某个键
+        //将removeNode方法的返回值赋给root?
+        this.root = this.removeNode(this.root, key);
+    }
+    removeNode(node, key) {
+        if (node == null) {
+            return null;
+        }
+        if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
+            node.left = this.removeNode(node.left, key);
+            return node;
+        } else if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
+            node.right = this.removeNode(node.right, key);
+            return node;
+        } else {
+            //键等于node.key
+            //第一种情况
+            if (node.left == null && node.right == null) {
+                node = null;
+                return node; //将父节点的指针置为null
+            }
+            //第二种情况
+            if (node.left == null) {
+                node = node.right;
+                return node;
+            } else if (node.right == null) {
+                node = node.left;
+                return node;
+            }
+            //第三种情况??? -- 子节点都不为null
+            const aux = this.minNode(node.right); //找到右节点中最小的，替换当前要删除的节点的key
+            node.key = aux.key;
+            node.right = this.removeNode(node.right, aux.key); //替换之后，删除之前右边节点中最小的那个
+            return node;
+        }
     }
 }
