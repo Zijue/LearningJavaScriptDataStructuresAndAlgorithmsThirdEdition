@@ -1,6 +1,7 @@
 import { LinkedList, DoubleLinkedList, DoubleCircularLinkedList, LRUCache } from './linked-list';
 // import Set from './set/index';
 import { Dictionary, HashTable, HashTableSeparateChaining } from './map/index';
+import { BinarySearchTree } from './tree';
 
 // 单向链表测试
 // const linkedList = new LinkedList();
@@ -102,16 +103,38 @@ import { Dictionary, HashTable, HashTableSeparateChaining } from './map/index';
 
 // 散列表冲突测试
 // const hash = new HashTable();
-const hash = new HashTableSeparateChaining();
-hash.put('Ygritte', 'ygritte@email.com');
-hash.put('Jonathan', 'jonathan@email.com');
-hash.put('Jamie', 'jamie@email.com');
-hash.put('Jack', 'jack@email.com');
-hash.put('Jasmine', 'jasmine@email.com');
-hash.put('Jake', 'jake@email.com');
-hash.put('Nathan', 'nathan@email.com');
-hash.put('Athelstan', 'athelstan@email.com');
-hash.put('Sue', 'sue@email.com');
-hash.put('Aethelwulf', 'aethelwulf@email.com');
-hash.put('Sargeras', 'sargeras@email.com');
-console.log(hash.toString()); //上述的哈希表存在散列冲突，会使：分离链接 或 线性探查
+// const hash = new HashTableSeparateChaining();
+// hash.put('Ygritte', 'ygritte@email.com');
+// hash.put('Jonathan', 'jonathan@email.com');
+// hash.put('Jamie', 'jamie@email.com');
+// hash.put('Jack', 'jack@email.com');
+// hash.put('Jasmine', 'jasmine@email.com');
+// hash.put('Jake', 'jake@email.com');
+// hash.put('Nathan', 'nathan@email.com');
+// hash.put('Athelstan', 'athelstan@email.com');
+// hash.put('Sue', 'sue@email.com');
+// hash.put('Aethelwulf', 'aethelwulf@email.com');
+// hash.put('Sargeras', 'sargeras@email.com');
+// console.log(hash.toString()); //上述的哈希表存在散列冲突，会使：分离链接 或 线性探查
+
+// 二叉搜索树测试
+const tree = new BinarySearchTree();
+tree.insert(11);
+tree.insert(7);
+tree.insert(15);
+tree.insert(5);
+tree.insert(3);
+tree.insert(9);
+tree.insert(8);
+tree.insert(10);
+tree.insert(13);
+tree.insert(12);
+tree.insert(14);
+tree.insert(20);
+tree.insert(18);
+tree.insert(25);
+tree.insert(6);
+const printNode = (value) => console.log(value);
+// tree.inOrderTraverse(printNode);
+// tree.preOrderTraverse(printNode);
+tree.postOrderTraverse(printNode);
