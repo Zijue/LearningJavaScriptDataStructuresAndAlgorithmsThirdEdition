@@ -142,5 +142,5 @@ const printNode = (value) => console.log(value);
 // console.log(tree.max());
 // console.log(tree.search(1) ? 'Key 1 found.' : 'Key 1 not found.');
 // console.log(tree.search(8) ? 'Key 8 found.' : 'Key 8 not found.');
-tree.remove(15);
-tree.inOrderTraverse(printNode);
+// tree.remove(15);
+// tree.inOrderTraverse(printNode);
