@@ -17,3 +17,17 @@ export class BSTNode {
         this.right = null; //右侧子节点引用
     }
 }
+export class RedBlackNode extends BSTNode {
+    constructor(key) { //红黑树节点除了记录左右子节点之外，还需要记录颜色以及父节点的引用
+        super(key);
+        this.color = Colors.RED;
+        this.parent = null;
+    }
+    isRed() {
+        return this.color === Colors.RED;
+    }
+}
+export const Colors = {
+    RED: 1,
+    BLACK: 2
+}
