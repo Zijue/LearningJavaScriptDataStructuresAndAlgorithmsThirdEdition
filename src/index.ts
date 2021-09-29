@@ -1,3 +1,4 @@
+import { MinHeap } from './heap';
 import { LinkedList, DoubleLinkedList, DoubleCircularLinkedList, LRUCache } from './linked-list';
 // import Set from './set/index';
 import { Dictionary, HashTable, HashTableSeparateChaining } from './map/index';
@@ -144,3 +145,17 @@ const printNode = (value) => console.log(value);
 // console.log(tree.search(8) ? 'Key 8 found.' : 'Key 8 not found.');
 // tree.remove(15);
 // tree.inOrderTraverse(printNode);
+
+//二叉堆（最小堆）
+const heap = new MinHeap();
+heap.insert(2);
+heap.insert(3);
+heap.insert(4);
+heap.insert(5);
+heap.insert(1);
+console.log(heap.heap)
+console.log('Heap size: ', heap.size());
+console.log('Heap is empty: ', heap.isEmpty());
+console.log('Heap min value: ', heap.findMinimum());
+console.log('Extract minimum: ', heap.extract());
+console.log(heap.heap)
