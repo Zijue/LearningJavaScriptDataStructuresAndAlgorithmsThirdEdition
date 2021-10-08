@@ -1,4 +1,5 @@
 import { heapSort, MinHeap } from './heap/index';
+import { bubbleSort, selectSort } from './sort-algo';
 import { defaultCompare, reverseCompare } from './utils';
 // import { LinkedList, DoubleLinkedList, DoubleCircularLinkedList, LRUCache } from './linked-list';
 // import Set from './set/index';
@@ -163,8 +164,13 @@ import { defaultCompare, reverseCompare } from './utils';
 
 //堆排序
 // const array = [7, 6, 3, 5, 4, 1, 2];
-const array = [7, 4, 2, 5, 6, 1, 3];
-debugger
-console.log('Before sorting: ', array);
-console.log('After sorting: ', heapSort(array));
-console.log('After sorting: ', heapSort(array, reverseCompare(defaultCompare)));
+// const array = [7, 4, 2, 5, 6, 1, 3];
+// debugger
+// console.log('Before sorting: ', array);
+// console.log('After sorting: ', heapSort(array));
+// console.log('After sorting: ', heapSort(array, reverseCompare(defaultCompare)));
+
+//冒泡排序
+let arr1 = [7, 6, 3, 5, 4, 1, 2];
+// console.log(bubbleSort(arr1));
+console.log(selectSort(arr1));
