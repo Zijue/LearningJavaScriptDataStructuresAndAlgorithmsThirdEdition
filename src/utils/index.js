@@ -13,6 +13,9 @@ export function defaultCompare(a, b) {
     }
     return a < b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
 }
+export function reverseCompare(compareFn) {
+    return (a, b) => compareFn(b, a);
+}
 export function defaultToString(item) {
     if (item === null) {
         return 'NULL';

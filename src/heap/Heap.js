@@ -1,6 +1,6 @@
-import { Compare, defaultCompare } from '../utils'
+import { Compare, defaultCompare, reverseCompare } from '../utils'
 
-const swap = (arr, a, b) => [arr[a], arr[b]] = [arr[b], arr[a]]; //交换数组中的值
+export const swap = (arr, a, b) => [arr[a], arr[b]] = [arr[b], arr[a]]; //交换数组中的值
 export class MinHeap {
     constructor(compareFn = defaultCompare) {
         this.compareFn = compareFn;
@@ -96,7 +96,4 @@ export class MaxHeap extends MinHeap {
         super(compareFn);
         this.compareFn = reverseCompare(compareFn); //只需要将对比规则进行替换
     }
-}
-function reverseCompare(compareFn) {
-    return (a, b) => compareFn(b, a);
 }
