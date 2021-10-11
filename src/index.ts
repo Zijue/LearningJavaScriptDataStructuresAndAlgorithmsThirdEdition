@@ -1,5 +1,5 @@
 import { heapSort, MinHeap } from './heap/index';
-import { bubbleSort, insertionSort, mergeSort, selectSort } from './sort-algo';
+import { bubbleSort, bucketSort, countingSort, insertionSort, mergeSort, quickSort, radixSort, selectSort } from './sort-algo';
 import { defaultCompare, reverseCompare } from './utils';
 // import { LinkedList, DoubleLinkedList, DoubleCircularLinkedList, LRUCache } from './linked-list';
 // import Set from './set/index';
@@ -175,4 +175,9 @@ let arr1 = [7, 6, 3, 5, 4, 1, 2];
 // console.log(bubbleSort(arr1));
 // console.log(selectSort(arr1));
 // console.log(insertionSort(arr1));
-console.log(mergeSort(arr1));
+// console.log(mergeSort(arr1));
+// console.log(quickSort(arr1));
+// console.log(countingSort(arr1));
+let arr2 = [5, 4, 3, 2, 6, 1, 7, 10, 9, 8];
+// console.log(bucketSort(arr2));
+console.log(radixSort(arr2));
